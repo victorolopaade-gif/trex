@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To My Noora 💕</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #0f001a, #1a0033, #2a004d);
+      color: #ffe6f2;
+      font-family: 'Georgia', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 2.8s ease-out forwards 0.5s;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      margin-bottom: 0.4em;
+      color: #ffccdd;
+      text-shadow: 0 0 30px rgba(255, 182, 193, 0.5);
+    }
+
+    .subtitle {
+      font-size: clamp(1.2rem, 4vw, 1.6rem);
+      opacity: 0.85;
+      margin-bottom: 2em;
+      font-style: italic;
+    }
+
+    .message {
+      font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+      line-height: 1.9;
+      background: rgba(20, 0, 40, 0.35);
+      backdrop-filter: blur(8px);
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 200, 220, 0.15);
+      margin: 1.5em 0;
+    }
+
+    .signature {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-family: 'Dancing Script', cursive;
+      color: #ffd1dc;
+      margin-top: 1.5em;
+      text-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+    }
+
+    .tap-hint {
+      margin-top: 2.5em;
+      font-size: 0.95rem;
+      opacity: 0.5;
+      letter-spacing: 1px;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .container, h1, .message { animation: none; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body onclick="startMusic()">
+
+  <div class="container">
+    <h1>Noora نورة</h1>
+    <div class="subtitle">my light, my delight 💫</div>
+
+    <div class="message">
+      Hey my baby,<br><br>
+
+      Your real name is Delight — and you truly are.<br>
+      But when I call you Noora, it's because you light up every dark corner of my world.<br><br>
+
+      Some people bring noise, chaos, stress...<br>
+      You? You bring peace. Even in your wickedness 😈<br>
+      And that solar-headed panel energy 🌚? I love it. Makes me laugh every time.<br><br>
+
+      You're my safe place, my favorite notification, my reason to smile at 2 a.m.<br>
+      I love you more than words.<br><br>
+
+      Stay my light forever?
+    </div>
+
+    <div class="signature">Forever yours, Fiyinn 🫶</div>
+
+    <div class="tap-hint">tap anywhere to play our song 🤍</div>
+  </div>
+
+  <!-- === Music section – comment out if you don't have music.mp3 yet === -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    let hasStarted = false;
+
+    function startMusic() {
+      if (!hasStarted && music) {
+        music.volume = 0.4; // softer volume
+        music.play().catch(e => console.log("Autoplay blocked:", e));
+        hasStarted = true;
+        document.querySelector(".tap-hint").style.opacity = "0";
+      }
+    }
+  </script>
+
+</body>
+</html>
